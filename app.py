@@ -44,23 +44,23 @@ st.write("""
 
 
 
-#image1 = Image.open('image1.jpg')
-#image2 = Image.open('image2.jpg')
-#image3 = Image.open('image3.jpg')
+image1 = Image.open('images/image1.jpg')
+image2 = Image.open('images/image2.jpg')
+image3 = Image.open('images/image3.jpg')
 
 
-#col1, col2, col3 = st.columns( [0.5, 0.5, 0.5])
-#with col1:
-#    st.markdown('<p style="text-align: center;">feild survey</p>',unsafe_allow_html=True)
- #   st.image(image1,width=200)  
+col1, col2, col3 = st.columns( [0.5, 0.5, 0.5])
+with col1:
+    st.markdown('<p style="text-align: center;">feild survey</p>',unsafe_allow_html=True)
+    st.image(image1,width=200)  
 
-#with col2:
-   # st.markdown('<p style="text-align: center;">field survey 2</p>',unsafe_allow_html=True)
-   # st.image(image2,width=200) 
+with col2:
+    st.markdown('<p style="text-align: center;">field survey 2</p>',unsafe_allow_html=True)
+    st.image(image2,width=200) 
 
-#with col3:
- #   st.markdown('<p style="text-align: center;">field survey 3</p>',unsafe_allow_html=True)
-  #  st.image(image3,width=200) 
+with col3:
+    st.markdown('<p style="text-align: center;">field survey 3</p>',unsafe_allow_html=True)
+    st.image(image3,width=200) 
 
 # Model saved with Keras model.save()
 MODEL_PATH ='model_inception.h5'
