@@ -81,16 +81,25 @@ uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
 model1 = load_model(MODEL_PATH2)
 def  leaf_predict(uploaded_file, model1):
     #print(uploaded_file)
-    img = image.load_img(uploaded_file, target_size=(224, 224))
+    img = image.load_img(uploaded_file, target_size=(256, 256))
+    # convert to array
+    img = image.img_to_array(img)
+    # normalize the array
+    img /= 255
+    # expand dimensions for keras convention
+    img = np.expand_dims(img, axis=0)
+    
+    
+    #img = image.load_img(uploaded_file, target_size=(224, 224))
     
 
     # Preprocessing the image
-    x = image.img_to_array(img)
-    # x = np.true_divide(x, 255)
+    #x = image.img_to_array(img)
+    ## x = np.true_divide(x, 255)
     ## Scaling
-    x=x/255
-    x = np.expand_dims(x, axis=0)
-    preds = model1.predict(x)
+    #x=x/255
+    #x = np.expand_dims(x, axis=0)
+    preds = model1.predict(img)
     dist = np.linalg.norm(img - preds)
     if dist <= 20:
         return "leaf"
