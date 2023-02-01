@@ -90,7 +90,7 @@ def  leaf_predict(uploaded_file, model1):
     ## Scaling
     x=x/255
     x = np.expand_dims(x, axis=0)
-    preds = model1.predict(img)
+    preds = model1.predict(x)
     dist = np.linalg.norm(img - preds)
     if dist <= 20:
         return "leaf"
