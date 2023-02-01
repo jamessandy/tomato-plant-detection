@@ -107,10 +107,10 @@ def  leaf_predict(uploaded_file, model1):
         return "not leaf"
 
 
-if st.button("Submit"):
-    preds = leaf_predict(uploaded_file, model1)
-    result=preds
-    st.text(f"The result is: {result}")
+#if st.button("Submit"):
+ #   preds = leaf_predict(uploaded_file, model1)
+  #  result=preds
+   # st.text(f"The result is: {result}")
 
 
 
@@ -160,7 +160,11 @@ def model_predict(uploaded_file, model):
     return preds
 
 
-#if st.button("Submit"):
- #   preds = model_predict(uploaded_file, model)
-  #  result=preds
-   # st.text(f"The result is: {result}")
+if st.button("Submit"):
+    leaf = leaf_predict(uploaded_file, model1)
+    if leaf == "leaf":
+        preds = model_predict(uploaded_file, model)
+        result=preds
+        st.text(f"The result is: {result}")
+    else:
+        st.text("This not an image of a leaf")
