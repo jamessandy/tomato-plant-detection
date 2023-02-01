@@ -43,9 +43,9 @@ st.write("""
      """)
 
 
-image1 = Image.open('https://imgur.com/a/7wv5SmI')
-image2 = Image.open('images/image2.jpg')
-image3 = Image.open('images/image3.jpg')
+image1 = Image.open('image3.JPG')
+image2 = Image.open('image2.JPG')
+image3 = Image.open('image3.JPG')
 
 
 col1, col2, col3 = st.columns( [0.5, 0.5, 0.5])
