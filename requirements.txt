@@ -82,6 +82,7 @@ scikit-learn
 scipy
 Send2Trash
 six
+streamlit >= 1.9.2
 sklearn
 tensorboard
 tensorboard-plugin-wit
