@@ -77,6 +77,33 @@ uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
 
 
 
+model1 = load_model("one-class.h5")
+def  leaf_predict(uploaded_file, model1):
+    #print(uploaded_file)
+    img = image.load_img(uploaded_file, target_size=(224, 224))
+    
+
+    # Preprocessing the image
+    x = image.img_to_array(img)
+    # x = np.true_divide(x, 255)
+    ## Scaling
+    x=x/255
+    x = np.expand_dims(x, axis=0)
+    preds = model1.predict(img)
+    dist = np.linalg.norm(img - preds)
+    if dist <= 20:
+        return "leaf"
+    else:
+        return "not leaf"
+
+
+if st.button("Submit"):
+    preds = leaf_predict(uploaded_file, model1)
+    result=preds
+    st.text(f"The result is: {result}")
+
+
+
 
 def model_predict(uploaded_file, model):
     #print(uploaded_file)
@@ -123,7 +150,7 @@ def model_predict(uploaded_file, model):
     return preds
 
 
-if st.button("Submit"):
-    preds = model_predict(uploaded_file, model)
-    result=preds
-    st.text(f"The result is: {result}")
+#if st.button("Submit"):
+ #   preds = model_predict(uploaded_file, model)
+  #  result=preds
+   # st.text(f"The result is: {result}")
