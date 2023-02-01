@@ -63,6 +63,7 @@ with col3:
 
 # Model saved with Keras model.save()
 MODEL_PATH ='model_inception.h5'
+MODEL_PATH2 ='one-class.h5'
 
 # Load your trained model
 model = load_model(MODEL_PATH)
@@ -77,7 +78,7 @@ uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
 
 
 
-model1 = load_model("one-class.h5")
+model1 = load_model(MODEL_PATH2)
 def  leaf_predict(uploaded_file, model1):
     #print(uploaded_file)
     img = image.load_img(uploaded_file, target_size=(224, 224))
