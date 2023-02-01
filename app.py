@@ -42,9 +42,8 @@ st.write("""
         This app uses machine learning to detect the diease affecting a tomato plant using just a photo of the leaf.  \n  \n Upload an image of the plant below to get started.
      """)
 
-IMAGE_PATH ='image1.jpg'
 
-image1 = Image.open(IMAGE_PATH)
+image1 = Image.open('https://imgur.com/a/7wv5SmI')
 image2 = Image.open('images/image2.jpg')
 image3 = Image.open('images/image3.jpg')
 
