@@ -83,7 +83,7 @@ scipy
 Send2Trash
 six
 streamlit >= 1.9.2
-sklearn
+scikit-learn
 tensorboard
 tensorboard-plugin-wit
 tensorflow-cpu
