@@ -73,10 +73,6 @@ model = load_model(MODEL_PATH)
 #Add file uploader to allow users to upload photos
 uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
 #uploaded_file = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-    # To read file as bytes:
-    bytes_data = uploaded_file.getvalue()
-    st.write(bytes_data)
 
 #if uploaded_file is not None:
 #    image = Image.open(uploaded_file)
@@ -87,7 +83,7 @@ if uploaded_file is not None:
 model1 = load_model(MODEL_PATH2)
 def  leaf_predict(uploaded_file, model1):
     #print(uploaded_file)
-    img = image.load_img(uploaded_file, target_size=(256, 256))
+    img = image.load_img(uploaded_file, target_size=(224, 224))
     # convert to array
     img = image.img_to_array(img)
     # normalize the array
