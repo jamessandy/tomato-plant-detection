@@ -88,7 +88,7 @@ if uploaded_file is not None:
 model1 = load_model(MODEL_PATH2)
 def  leaf_predict(image, model1):
     #print(uploaded_file)
-    img = image.load_img(uploaded_file, target_size=(224, 224))
+    img = image.load_img(image, target_size=(224, 224))
     # convert to array
     img = image.img_to_array(img)
     # normalize the array
