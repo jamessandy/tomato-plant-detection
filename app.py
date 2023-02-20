@@ -86,7 +86,7 @@ if uploaded_file is not None:
 
 
 model1 = load_model(MODEL_PATH2)
-def  leaf_predict(uploaded_file, model1):
+def  leaf_predict(image, model1):
     #print(uploaded_file)
     img = image.load_img(uploaded_file, target_size=(224, 224))
     # convert to array
@@ -168,7 +168,7 @@ def model_predict(uploaded_file, model):
 
 
 if st.button("Submit"):
-    leaf = leaf_predict(uploaded_file, model1)
+    leaf = leaf_predict(image, model1)
     if leaf == "leaf":
         preds = model_predict(uploaded_file, model)
         result=preds
