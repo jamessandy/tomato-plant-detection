@@ -72,6 +72,11 @@ model = load_model(MODEL_PATH)
 
 #Add file uploader to allow users to upload photos
 uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
+if uploaded_file is not None:
+    #try the below line instead of Image.open()
+    image= uploaded_file.read()
+
+    st.image(image, caption='Uploaded Image.')
 #uploaded_file = st.file_uploader("Choose a file")
 
 #if uploaded_file is not None:
