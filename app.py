@@ -74,7 +74,7 @@ model = load_model(MODEL_PATH)
 uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
 if uploaded_file is not None:
     #try the below line instead of Image.open()
-    image= uploaded_file.read()
+    image1 = uploaded_file.read()
 
     st.image(image, caption='Uploaded Image.')
 #uploaded_file = st.file_uploader("Choose a file")
