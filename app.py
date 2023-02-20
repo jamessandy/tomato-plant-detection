@@ -72,13 +72,6 @@ model = load_model(MODEL_PATH)
 
 #Add file uploader to allow users to upload photos
 uploaded_file = st.file_uploader("", type=['jpg','png','jpeg'])
-if uploaded_file is not None:
-    #try the below line instead of Image.open()
-    image1 = uploaded_file.read()
-
-    st.image(image, caption='Uploaded Image.')
-#uploaded_file = st.file_uploader("Choose a file")
-
 #if uploaded_file is not None:
 #    image = Image.open(uploaded_file)
 #    st.image(image,width=300)
@@ -86,9 +79,9 @@ if uploaded_file is not None:
 
 
 model1 = load_model(MODEL_PATH2)
-def  leaf_predict(image1, model1):
+def  leaf_predict(uploaded_file, model1):
     #print(uploaded_file)
-    img = image.load_img(image, target_size=(224, 224))
+    img = image.load_img(uploaded_file, target_size=(256, 256))
     # convert to array
     img = image.img_to_array(img)
     # normalize the array
@@ -114,10 +107,10 @@ def  leaf_predict(image1, model1):
         return "not leaf"
 
 
-#if st.button("Submit"):
- #   preds = leaf_predict(uploaded_file, model1)
-  #  result=preds
-   # st.text(f"The result is: {result}")
+if st.button("Submit"):
+    preds = leaf_predict(uploaded_file, model1)
+    result=preds
+    st.text(f"The result is: {result}")
 
 
 
@@ -167,11 +160,7 @@ def model_predict(uploaded_file, model):
     return preds
 
 
-if st.button("Submit"):
-    leaf = leaf_predict(image1, model1)
-    if leaf == "leaf":
-        preds = model_predict(uploaded_file, model)
-        result=preds
-        st.text(f"The result is: {result}")
-    else:
-        st.text("This not an image of a leaf")
+#if st.button("Submit"):
+ #   preds = model_predict(uploaded_file, model)
+  #  result=preds
+   # st.text(f"The result is: {result}")
